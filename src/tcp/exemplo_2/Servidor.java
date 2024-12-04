@@ -10,12 +10,12 @@ import java.util.Date;
 public class Servidor {
     
     static int porta = 1234;
-    static int valorSecreto = (int) (Math.random()*10)+1;
+    static int valorSecreto = (int) (Math.random()*15)+1;
     
     public static void main(String[] args) {
         try{
             ServerSocket ss = new ServerSocket(porta);
-            System.out.println("Aguardando conexões...");
+            System.out.println("Aguardando conexões... ");
             while(true){
                 Socket s = ss.accept();
 
