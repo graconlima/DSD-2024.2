@@ -9,15 +9,20 @@ import java.util.Date;
 
 public class Servidor{
     int porta = 1234;
-    Date d = new Date();
+    Date d;
     public Servidor(){
         try{
             ServerSocket ss = new ServerSocket(porta);
             System.out.println("Aguardando...");
-            Socket s = ss.accept();
-            OutputStream os = s.getOutputStream();
-            os.write(d.toString().getBytes());
-            os.close();
+
+            while(true){
+                d = new Date();
+                Socket s = ss.accept();
+                OutputStream os = s.getOutputStream();
+                os.write(d.toString().getBytes());
+                os.close();
+                System.out.println(d.toString()); 
+           }
         }catch(IOException ioe){
             ioe.printStackTrace();
         }
